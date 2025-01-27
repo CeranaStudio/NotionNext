@@ -111,15 +111,7 @@ const LayoutIndex = props => {
       {siteConfig('STARTER_TEAM_ENABLE', true, CONFIG) && <Team />}
       {/* 博文列表 */}
       {siteConfig('STARTER_BLOG_ENABLE', true, CONFIG) && (
-        <>
-          <Blog posts={posts} />
-          <div className='container mx-auto flex justify-end mb-4'>
-            <Link className='text-lg underline' href={'/archive'}>
-              <span>{locale.COMMON.MORE}</span>
-              <i className='ml-2 fas fa-arrow-right' />
-            </Link>
-          </div>
-        </>
+        <Blog posts={posts} />
       )}
       {/* 联系方式 */}
       {siteConfig('STARTER_CONTACT_ENABLE', true, CONFIG) && <Contact />}
