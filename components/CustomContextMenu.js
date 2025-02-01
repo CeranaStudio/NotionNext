@@ -197,7 +197,7 @@ export default function CustomContextMenu(props) {
             </div>
           )}
 
-          {CUSTOM_RIGHT_CLICK_CONTEXT_MENU_CATEGORY && (
+          {/* {CUSTOM_RIGHT_CLICK_CONTEXT_MENU_CATEGORY && (
             <Link
               href='/category'
               title={locale.MENU.CATEGORY}
@@ -205,9 +205,9 @@ export default function CustomContextMenu(props) {
               <i className='fa-solid fa-square-minus mr-2' />
               <div className='whitespace-nowrap'>{locale.MENU.CATEGORY}</div>
             </Link>
-          )}
+          )} */}
 
-          {CUSTOM_RIGHT_CLICK_CONTEXT_MENU_TAG && (
+          {/* {CUSTOM_RIGHT_CLICK_CONTEXT_MENU_TAG && (
             <Link
               href='/tag'
               title={locale.MENU.TAGS}
@@ -215,7 +215,7 @@ export default function CustomContextMenu(props) {
               <i className='fa-solid fa-tag mr-2' />
               <div className='whitespace-nowrap'>{locale.MENU.TAGS}</div>
             </Link>
-          )}
+          )} */}
         </div>
 
         <hr className='my-2 border-dashed' />
@@ -261,7 +261,7 @@ export default function CustomContextMenu(props) {
             </div>
           )}
 
-          {CUSTOM_RIGHT_CLICK_CONTEXT_MENU_THEME_SWITCH && (
+          {/* {CUSTOM_RIGHT_CLICK_CONTEXT_MENU_THEME_SWITCH && (
             <div
               onClick={handleChangeTheme}
               title={locale.MENU.THEME_SWITCH}
@@ -271,7 +271,7 @@ export default function CustomContextMenu(props) {
                 {locale.MENU.THEME_SWITCH}
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>
