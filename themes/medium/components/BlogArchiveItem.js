@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 /**
- * 归档分组
+ * 案例分享分组
  * @param {*} param0
  * @returns
  */

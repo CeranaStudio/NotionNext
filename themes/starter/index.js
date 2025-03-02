@@ -232,7 +232,7 @@ const LayoutSearch = props => {
 }
 
 /**
- * 文章归档
+ * 文章案例分享
  * @param {*} props
  * @returns
  */

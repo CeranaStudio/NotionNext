@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
 /**
- * 博客归档
+ * 博客案例分享
  * @param posts 所有文章
- * @param archiveTitle 归档标题
+ * @param archiveTitle 案例分享标题
  * @returns {JSX.Element}
  * @constructor
  */
