@@ -113,8 +113,6 @@ const LayoutIndex = props => {
       {siteConfig('STARTER_FEATURE_ENABLE', true, CONFIG) && <Features />}
       {/* 关于 */}
       {siteConfig('STARTER_ABOUT_ENABLE', true, CONFIG) && <About />}
-      {/* 价格 */}
-      {siteConfig('STARTER_PRICING_ENABLE', true, CONFIG) && <Pricing />}
       {/* 评价展示 */}
       {siteConfig('STARTER_TESTIMONIALS_ENABLE', true, CONFIG) && (
         <Testimonials />
@@ -123,10 +121,12 @@ const LayoutIndex = props => {
       {siteConfig('STARTER_FAQ_ENABLE', true, CONFIG) && <FAQ />}
       {/* 团队介绍 */}
       {siteConfig('STARTER_TEAM_ENABLE', true, CONFIG) && <Team />}
-      {/* 博文列表 */}
+      {/* 博文列表（合作案例） */}
       {siteConfig('STARTER_BLOG_ENABLE', true, CONFIG) && (
         <Blog posts={posts} />
       )}
+      {/* 服務方案 */}
+      {siteConfig('STARTER_PRICING_ENABLE', true, CONFIG) && <Pricing />}
       {/* 联系方式 */}
       {siteConfig('STARTER_CONTACT_ENABLE', true, CONFIG) && <Contact />}
 

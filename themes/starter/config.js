@@ -72,42 +72,39 @@ const CONFIG = {
   STARTER_ABOUT_TIPS_3: '正在线上运行',
 
   // 首页价格区块
-  STARTER_PRICING_ENABLE: false, // 价格区块开关
-  STARTER_PRICING_TITLE: '价格表',
-  STARTER_PRICING_TEXT_1: '很棒的定价计划',
+  STARTER_PRICING_ENABLE: true, // 价格区块开关
+  STARTER_PRICING_TITLE: '服務方案',
+  STARTER_PRICING_TEXT_1: '選擇適合您的方案',
   STARTER_PRICING_TEXT_2:
-    '我们制定了灵活的付费模式，您可以按需选择。（NotionNext免费开源，这里仅演示产品订阅付费功能，请勿下单购买！）',
+    '我們提供彈性的服務方案，依據專案規模與需求提供最適合的解決方案',
 
-  STARTER_PRICING_1_TITLE: '入门版',
-  STARTER_PRICING_1_PRICE: '19.9',
-  STARTER_PRICING_1_PRICE_CURRENCY: '$',
-  STARTER_PRICING_1_PRICE_PERIOD: '每月',
-  STARTER_PRICING_1_HEADER: '功能点',
-  STARTER_PRICING_1_FEATURES: '所有的主题,免费更新,帮助手册', // 英文逗号隔开
-  STARTER_PRICING_1_BUTTON_TEXT: '立即购买',
-  STARTER_PRICING_1_BUTTON_URL:
-    'https://tangly1024.lemonsqueezy.com/checkout/buy/c1a38a65-362e-44c5-8065-733fee39eb54',
+  STARTER_PRICING_1_TITLE: '基礎服務',
+  STARTER_PRICING_1_PRICE: '3 萬',
+  STARTER_PRICING_1_PRICE_CURRENCY: 'NT$',
+  STARTER_PRICING_1_PRICE_PERIOD: '起',
+  STARTER_PRICING_1_HEADER: '快速啟動您的數位化',
+  STARTER_PRICING_1_FEATURES: '單頁式網站設計,簡易 APP 建置,API 串接服務,自動化流程設計（n8n / Make）,FAQ 聊天機器人', // 英文逗号隔开
+  STARTER_PRICING_1_BUTTON_TEXT: '立即諮詢',
+  STARTER_PRICING_1_BUTTON_URL: '/#contact',
 
-  STARTER_PRICING_2_TAG: '推荐',
-  STARTER_PRICING_2_TITLE: '基础版',
-  STARTER_PRICING_2_PRICE: '39.9',
-  STARTER_PRICING_2_PRICE_CURRENCY: '$',
-  STARTER_PRICING_2_PRICE_PERIOD: '每月',
-  STARTER_PRICING_2_HEADER: '功能点',
-  STARTER_PRICING_2_FEATURES: '包含入门版,项目源码,内部社群,技术咨询,SEO优化', // 英文逗号隔开
-  STARTER_PRICING_2_BUTTON_TEXT: '立即购买',
-  STARTER_PRICING_2_BUTTON_URL:
-    'https://tangly1024.lemonsqueezy.com/checkout/buy/590ad70a-c3b7-4caf-94ec-9ca27bde06d4',
+  STARTER_PRICING_2_TAG: '熱門',
+  STARTER_PRICING_2_TITLE: '進階開發',
+  STARTER_PRICING_2_PRICE: '20 萬',
+  STARTER_PRICING_2_PRICE_CURRENCY: 'NT$',
+  STARTER_PRICING_2_PRICE_PERIOD: '起',
+  STARTER_PRICING_2_HEADER: '完整的應用程式開發',
+  STARTER_PRICING_2_FEATURES: 'APP 開發（iOS / Android）,跨平台 APP 開發（PWA）,RAG 知識庫助理,AI Chatbot 開發,企業內部系統', // 英文逗号隔开
+  STARTER_PRICING_2_BUTTON_TEXT: '立即諮詢',
+  STARTER_PRICING_2_BUTTON_URL: '/#contact',
 
-  STARTER_PRICING_3_TITLE: '高级版',
-  STARTER_PRICING_3_PRICE: '59.9',
-  STARTER_PRICING_3_PRICE_CURRENCY: '$',
-  STARTER_PRICING_3_PRICE_PERIOD: '每月',
-  STARTER_PRICING_3_HEADER: '功能点',
-  STARTER_PRICING_3_FEATURES: '包含基础版,功能定制开发', // 英文逗号隔开
-  STARTER_PRICING_3_BUTTON_TEXT: '立即购买',
-  STARTER_PRICING_3_BUTTON_URL:
-    'https://tangly1024.lemonsqueezy.com/checkout/buy/df924d66-09dc-42a4-a632-a6b0c5cc4f28',
+  STARTER_PRICING_3_TITLE: '客製化方案',
+  STARTER_PRICING_3_PRICE: '50 萬',
+  STARTER_PRICING_3_PRICE_CURRENCY: 'NT$',
+  STARTER_PRICING_3_PRICE_PERIOD: '起',
+  STARTER_PRICING_3_HEADER: '量身打造的解決方案',
+  STARTER_PRICING_3_FEATURES: 'AI Agent 開發,地端部署解決方案,分散式系統架構,企業級 RAG 系統,客製化模型開發', // 英文逗号隔开
+  STARTER_PRICING_3_BUTTON_TEXT: '立即諮詢',
+  STARTER_PRICING_3_BUTTON_URL: '/#contact',
 
   // 首页用户测评区块
   STARTER_TESTIMONIALS_ENABLE: true, // 测评区块开关
@@ -207,7 +204,7 @@ const CONFIG = {
   STARTER_BLOG_ENABLE: true, // 首页博文区块开关
   STARTER_BLOG_TITLE: '最新消息', 
   STARTER_BLOG_COUNT: 3, // 首页博文区块默认展示前3篇文章
-  STARTER_BLOG_TEXT_1: '技術文章與專案分享',
+  STARTER_BLOG_TEXT_1: '合作案例',
   STARTER_BLOG_TEXT_2:
     '我們定期分享技術趨勢、產業觀察與專案實踐經驗，幫助您掌握數位轉型的最新動態。',
 

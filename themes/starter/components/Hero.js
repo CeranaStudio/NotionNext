@@ -1,16 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
+'use client'
+
 import LazyImage from '@/components/LazyImage'
 import { siteConfig } from '@/lib/config'
 import CONFIG from '../config'
 import SmartLink from '@/components/SmartLink'
+import { useState } from 'react'
+import ContactModal from './ContactModal'
 
 /**
  * 英雄大图区块
  */
 export const Hero = props => {
   const config = props?.NOTION_CONFIG || CONFIG
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
+
   return (
     <>
+      {/* Contact Modal */}
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
+
       {/* <!-- ====== Hero Section Start --> */}
       <div
         id='home'
@@ -41,11 +53,11 @@ export const Hero = props => {
                 <ul className='mb-10 flex flex-wrap items-center justify-center gap-5'>
                   {siteConfig('STARTER_HERO_BUTTON_1_TEXT', null, config) && (
                     <li>
-                      <SmartLink
-                        href={siteConfig('STARTER_HERO_BUTTON_1_URL', '')}
-                        className='inline-flex items-center justify-center rounded-md bg-white px-7 py-[14px] text-center text-base font-medium text-dark shadow-1 transition duration-300 ease-in-out hover:bg-gray-2 hover:text-body-color'>
+                      <button
+                        onClick={() => setIsContactModalOpen(true)}
+                        className='inline-flex items-center justify-center rounded-md bg-white px-7 py-[14px] text-center text-base font-medium text-dark shadow-1 transition duration-300 ease-in-out hover:bg-gray-2 hover:text-body-color cursor-pointer'>
                         {siteConfig('STARTER_HERO_BUTTON_1_TEXT', null, config)}
-                      </SmartLink>
+                      </button>
                     </li>
                   )}
                   {siteConfig('STARTER_HERO_BUTTON_2_TEXT', null, config) && (
