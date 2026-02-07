@@ -2,7 +2,7 @@ import { siteConfig } from '@/lib/config'
 import SocialButton from '@/themes/fukasawa/components/SocialButton'
 import { Logo } from './Logo'
 import { SVGFooterCircleBG } from './svg/SVGFooterCircleBG'
-import Link from 'next/link'
+import SmartLink from '@/components/SmartLink'
 
 /* eslint-disable @next/next/no-img-element */
 export const Footer = props => {
@@ -29,23 +29,18 @@ export const Footer = props => {
                 <span className='hidden md:inline'>|</span>
                 <span>統一編號：95292891</span>
               </div>
-              
+
               <div className='flex items-center gap-4 text-sm'>
-                <Link
+                <SmartLink
                   href={siteConfig('STARTER_FOOTER_PRIVACY_POLICY_URL', '')}
                   className='text-gray-7 hover:text-white hover:underline'>
                   {siteConfig('STARTER_FOOTER_PRIVACY_POLICY_TEXT', '隱私權政策')}
-                </Link>
-                {/* <Link
-                  href={siteConfig('STARTER_FOOTER_PRIVACY_LEGAL_NOTICE_URL', '')}
-                  className='text-gray-7 hover:text-white hover:underline'>
-                  {siteConfig('STARTER_FOOTER_PRIVACY_LEGAL_NOTICE_TEXT', '法律聲明')}
-                </Link> */}
-                <Link
+                </SmartLink>
+                <SmartLink
                   href={siteConfig('STARTER_FOOTER_PRIVACY_TERMS_OF_SERVICE_URL', '')}
                   className='text-gray-7 hover:text-white hover:underline'>
                   {siteConfig('STARTER_FOOTER_PRIVACY_TERMS_OF_SERVICE_TEXT', '服務條款')}
-                </Link>
+                </SmartLink>
               </div>
             </div>
           </div>

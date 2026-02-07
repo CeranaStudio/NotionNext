@@ -98,14 +98,33 @@ const NotionPage = ({ post, className }) => {
         })
       })
     }
+
+    // 查找所有具有 'notion-collection-page-properties' 类的元素,删除notion自带的页面properties
+    const timer = setTimeout(() => {
+      // 查找所有具有 'notion-collection-page-properties' 类的元素
+      const elements = document.querySelectorAll(
+        '.notion-collection-page-properties'
+      )
+
+      // 遍历这些元素并将其从 DOM 中移除
+      elements?.forEach(element => {
+        element?.remove()
+      })
+    }, 1000) // 1000 毫秒 = 1 秒
+
+    // 清理定时器，防止组件卸载时执行
+    return () => clearTimeout(timer)
   }, [post])
+
+  const cleanBlockMap = cleanBlocksWithWarn(post.blockMap);
+
 
   return (
     <div
       id='notion-article'
       className={`mx-auto overflow-hidden ${className || ''}`}>
       <NotionRenderer
-        recordMap={post?.blockMap}
+        recordMap={cleanBlockMap}
         mapPageUrl={mapPageUrl}
         mapImageUrl={mapImgUrl}
         components={{
@@ -123,6 +142,44 @@ const NotionPage = ({ post, className }) => {
     </div>
   )
 }
+
+function cleanBlocksWithWarn(blockMap) {
+  const cleanedBlocks = {};
+  const removedBlockIds = [];
+
+  for (const [id, block] of Object.entries(blockMap.block || {})) {
+    if (!block?.value?.id) {
+      removedBlockIds.push(id);
+      continue;
+    }
+
+    const newBlock = { ...block };
+
+    if (Array.isArray(newBlock.value.content)) {
+      // 递归清理 content 中无效的 blockId
+      newBlock.value.content = newBlock.value.content.filter((cid) => {
+        if (!blockMap.block[cid]?.value?.id) {
+          removedBlockIds.push(cid);
+          return false;
+        }
+        return true;
+      });
+    }
+
+    cleanedBlocks[id] = newBlock;
+  }
+
+  if (removedBlockIds.length) {
+    console.warn('Removed invalid blocks:', removedBlockIds);
+  }
+
+  return {
+    ...blockMap,
+    block: cleanedBlocks,
+  };
+}
+
+
 
 /**
  * 页面的数据库链接禁止跳转，只能查看
@@ -212,7 +269,7 @@ function getMediumZoomMargin() {
 // 代码
 const Code = dynamic(
   () =>
-    import('react-notion-x/build/third-party/code').then(async m => {
+    import('react-notion-x/build/third-party/code').then(m => {
       return m.Code
     }),
   { ssr: false }
