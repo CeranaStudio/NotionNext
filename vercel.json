@@ -1,5 +1,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "headers": []
+  "redirects": [
+    { "source": "/archive", "destination": "/cases", "permanent": true },
+    { "source": "/category/:path*", "destination": "/cases", "permanent": true },
+    { "source": "/article/:path*", "destination": "/cases", "permanent": true },
+    { "source": "/rss/:path*", "destination": "/", "permanent": false }
+  ]
 }
