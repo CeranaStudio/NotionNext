@@ -212,7 +212,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="團隊"
             title="一支什麼都能接住的技術團隊"
-            text="成員來自政大、交大、台大，待過 LINE、Google、NVIDIA、台積電、研華與 SoC Labs，從現場硬體一路做到雲端 AI。"
+            text="頂尖大學畢業，待過國內外大型軟硬體公司。做過大公司的系統，也知道中小企業要的是馬上能用、好維護的工具。"
           />
           <ul className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
             {team.map(m => (
@@ -226,7 +226,8 @@ export default function Home() {
                   />
                 </div>
                 <div className="mt-3 font-bold">{m.name}</div>
-                <div className="mt-1 text-sm leading-relaxed text-muted">{m.bio}</div>
+                <div className="mt-1 whitespace-nowrap text-sm text-muted">{m.school}</div>
+                {m.exp && <div className="whitespace-nowrap text-sm text-ink-soft">{m.exp}</div>}
               </li>
             ))}
           </ul>

@@ -243,13 +243,14 @@ export const testimonials = [
   }
 ]
 
+// school：學校；exp：經歷，「前」= 以前待過。每行要短到不換行。
 export const team = [
-  { name: 'Brandon Lu', bio: '政大，曾任職 LINE、研華', photo: '/team/brandon.webp' },
-  { name: 'Jack Zheng', bio: '交大，曾任職台積電', photo: '/team/yjack.webp' },
-  { name: 'Mark Lai', bio: '台大，現任職台積電，曾任職 Google', photo: '/team/mark.webp' },
-  { name: 'Yen Chiu', bio: '交大', photo: '/team/yen.webp' },
-  { name: 'Ian Chiu', bio: '交大，現任職 NVIDIA', photo: '/team/ian.webp' },
-  { name: 'Peter Chang', bio: '交大，曾任職 SoC Labs', photo: '/team/peter.webp' }
+  { name: 'Brandon Lu', school: '政大', exp: '前 LINE、研華', photo: '/team/brandon.webp' },
+  { name: 'Jack Zheng', school: '交大', exp: '前台積電', photo: '/team/yjack.webp' },
+  { name: 'Mark Lai', school: '台大', exp: '台積電・前 Google', photo: '/team/mark.webp' },
+  { name: 'Yen Chiu', school: '交大', exp: '', photo: '/team/yen.webp' },
+  { name: 'Ian Chiu', school: '交大', exp: 'NVIDIA', photo: '/team/ian.webp' },
+  { name: 'Peter Chang', school: '交大', exp: '前 Blobfish AI', photo: '/team/peter.webp' }
 ]
 
 export const faqs = [
