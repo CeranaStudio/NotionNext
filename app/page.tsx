@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import Carousel from '@/components/Carousel'
 import ContactForm from '@/components/ContactForm'
+import ProcessFlow from '@/components/ProcessFlow'
 import ServiceArt from '@/components/ServiceArt'
 import Testimonials from '@/components/Testimonials'
 import { CaseCard, Eyebrow, SectionHeading } from '@/components/ui'
-import { cases, faqs, hero, plans, process, services, site, team } from '@/lib/content'
+import { cases, faqs, hero, plans, services, site, team } from '@/lib/content'
 
 const industries = Array.from(new Set(cases.map(c => c.industry)))
 
@@ -118,16 +119,14 @@ export default function Home() {
 
       {/* Process */}
       <section id="process" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <SectionHeading eyebrow="合作流程" title="四個步驟，每一步都看得到東西" />
-        <ol className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
-          {process.map((p, i) => (
-            <li key={p.title} className="bg-white p-7">
-              <div className="font-display text-5xl font-bold text-honey">{String(i + 1).padStart(2, '0')}</div>
-              <h3 className="mt-5 text-lg font-bold">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{p.text}</p>
-            </li>
-          ))}
-        </ol>
+        <SectionHeading
+          eyebrow="合作流程"
+          title="先試再做，每一步都知道要簽什麼"
+          text="免費諮詢不用簽約；POC 驗證有效才進正式開發。每個階段結束，你都可以決定要不要往下走。"
+        />
+        <div className="max-w-3xl">
+          <ProcessFlow />
+        </div>
       </section>
 
       {/* Pricing */}

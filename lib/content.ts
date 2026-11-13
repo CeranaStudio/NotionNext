@@ -182,11 +182,48 @@ export const cases: CaseStudy[] = [
   }
 ]
 
-export const process = [
-  { title: '免費諮詢', text: '想法還不完整也沒關係。先聊你的流程與痛點，我們幫你判斷從哪一步開始最划算。' },
-  { title: '需求訪談與規劃', text: '到現場看實際作業，整理成可驗收的規格、時程與報價。' },
-  { title: '分段開發與驗收', text: '從最關鍵的需求先做，每個階段都能實際操作、確認再往下。' },
-  { title: '上線與維運', text: '新舊系統平行運作、提供教育訓練；上線後持續維護、監控與健檢。' }
+// 合作流程。contract 是「進入這一步之前要簽的合約」；沒有就是不用簽。
+export type ProcessStep = {
+  title: string
+  text: string
+  outputs: string[]
+  contract?: { label: string; note: string }
+  options?: { title: string; text: string }[]
+}
+
+export const workflowSteps: ProcessStep[] = [
+  {
+    title: '免費諮詢',
+    text: '先聊你的流程和卡關的地方，我們幫你判斷值不值得做、從哪裡開始最划算。',
+    outputs: ['不收費、不簽約', '初步建議方向']
+  },
+  {
+    title: '規劃訪談 ＋ POC 陪跑',
+    text: '到現場看實際作業，先做出一個能操作的小版本，用你的真實資料試跑，我們一起陪你用。',
+    outputs: ['可操作的 POC', '試跑成效', '正式導入的規格與報價'],
+    contract: { label: 'POC 合約', note: '範圍小、期間短，先驗證有沒有效' }
+  },
+  {
+    title: '正式導入',
+    text: 'POC 確認有效才往下走：擴充成完整系統、串接既有流程，並安排教育訓練。',
+    outputs: ['完整系統', '資料搬移', '教育訓練'],
+    contract: { label: '開發合約', note: '一份合約涵蓋導入到上線' }
+  },
+  {
+    title: '上線',
+    text: '新舊系統平行運作一段時間，確認穩定、驗收完成才正式切換。',
+    outputs: ['平行運作', '驗收', '正式切換']
+  },
+  {
+    title: '維運',
+    text: '上線後依你的需要選擇合作方式。',
+    outputs: [],
+    contract: { label: '維運或移交合約', note: '兩種擇一' },
+    options: [
+      { title: '持續維運', text: '月約，我們持續監控、修正，需求變了就動態調整。' },
+      { title: '整組移交', text: '原始碼、文件與帳號一次交給你，由你的團隊自行維護。' }
+    ]
+  }
 ]
 
 export type Plan = {
@@ -246,11 +283,11 @@ export const testimonials = [
 // school：學校；exp：經歷，「前」= 以前待過。每行要短到不換行。
 export const team = [
   { name: 'Brandon Lu', school: '政大', exp: '前 LINE、研華', photo: '/team/brandon.webp' },
-  { name: 'Jack Zheng', school: '交大', exp: '前台積電', photo: '/team/yjack.webp' },
+  { name: 'Jack Zheng', school: '交大', exp: '派斯科技', photo: '/team/yjack.webp' },
   { name: 'Mark Lai', school: '台大', exp: '台積電・前 Google', photo: '/team/mark.webp' },
   { name: 'Yen Chiu', school: '交大', exp: '', photo: '/team/yen.webp' },
   { name: 'Ian Chiu', school: '交大', exp: 'NVIDIA', photo: '/team/ian.webp' },
-  { name: 'Peter Chang', school: '交大', exp: '前 Blobfish AI', photo: '/team/peter.webp' }
+  { name: 'Peter Chang', school: '交大', exp: '前台積電', photo: '/team/peter.webp' }
 ]
 
 export const faqs = [

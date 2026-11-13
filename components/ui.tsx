@@ -3,12 +3,8 @@ import type { CaseStudy } from '@/lib/content'
 
 export function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
   return (
-    <div
-      className={`inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] ${dark ? 'text-honey' : 'text-honey-deep'}`}
-    >
-      <svg width="10" height="11" viewBox="0 0 10 11" aria-hidden="true">
-        <path d="M5 0l5 2.75v5.5L5 11 0 8.25v-5.5z" fill="currentColor" />
-      </svg>
+    <div className={`flex items-center gap-3 text-sm font-medium ${dark ? 'text-white/55' : 'text-muted'}`}>
+      <span className={`h-px w-8 ${dark ? 'bg-honey' : 'bg-honey-deep'}`} aria-hidden="true" />
       {children}
     </div>
   )
