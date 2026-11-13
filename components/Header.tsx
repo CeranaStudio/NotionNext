@@ -1,12 +1,15 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { nav, site } from '@/lib/content'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  // 首頁 hero 是淺色，還沒捲動時選單用深色字
+  const light = usePathname() === '/' && !scrolled && !open
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -24,9 +27,9 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <img src="/logo.png" alt="" width={32} height={32} className="rounded-md" />
-          <span className="text-[15px] font-bold tracking-wide text-white">
+          <span className={`text-[15px] font-bold tracking-wide transition-colors ${light ? 'text-ink' : 'text-white'}`}>
             {site.name}
-            <span className="ml-2 hidden font-display text-xs font-medium tracking-normal text-white/50 sm:inline">
+            <span className={`ml-2 hidden font-display text-xs font-medium tracking-normal sm:inline ${light ? 'text-ink/40' : 'text-white/50'}`}>
               Cerana
             </span>
           </span>
@@ -34,13 +37,13 @@ export default function Header() {
 
         <nav className="hidden items-center gap-7 md:flex" aria-label="主選單">
           {nav.map(item => (
-            <Link key={item.href} href={item.href} className="text-sm text-white/70 transition-colors hover:text-honey">
+            <Link key={item.href} href={item.href} className={`text-sm transition-colors ${light ? 'text-ink/70 hover:text-ink' : 'text-white/70 hover:text-honey'}`}>
               {item.label}
             </Link>
           ))}
           <Link
             href="/#contact"
-            className="rounded-full bg-honey px-4 py-2 text-sm font-bold text-ink transition hover:bg-white"
+            className={`rounded-full px-4 py-2 text-sm font-bold transition ${light ? 'bg-ink text-white hover:bg-honey hover:text-ink' : 'bg-honey text-ink hover:bg-white'}`}
           >
             免費諮詢
           </Link>
@@ -48,7 +51,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="-mr-2 p-2 text-white md:hidden"
+          className={`-mr-2 p-2 md:hidden ${light ? 'text-ink' : 'text-white'}`}
           aria-label={open ? '關閉選單' : '開啟選單'}
           aria-expanded={open}
           onClick={() => setOpen(v => !v)}

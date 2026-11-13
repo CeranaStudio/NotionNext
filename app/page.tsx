@@ -1,47 +1,19 @@
 import Link from 'next/link'
 import Carousel from '@/components/Carousel'
 import ContactForm from '@/components/ContactForm'
+import Hero from '@/components/Hero'
 import ProcessFlow from '@/components/ProcessFlow'
 import ServiceArt from '@/components/ServiceArt'
 import Testimonials from '@/components/Testimonials'
-import { CaseCard, Eyebrow, SectionHeading } from '@/components/ui'
-import { cases, faqs, hero, plans, services, site, team } from '@/lib/content'
+import { CaseCard, SectionHeading } from '@/components/ui'
+import { cases, faqs, plans, services, site, team } from '@/lib/content'
 
 const industries = Array.from(new Set(cases.map(c => c.industry)))
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="honeycomb relative overflow-hidden bg-ink pt-16">
-        <div
-          className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-honey/20 blur-[120px]"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto max-w-6xl px-4 pb-24 pt-20 sm:px-6 sm:pb-32 sm:pt-28">
-          <Eyebrow dark>{hero.eyebrow}</Eyebrow>
-          <h1 className="mt-6 max-w-4xl text-balance text-[1.95rem] font-black leading-[1.2] tracking-tight text-white sm:text-6xl">
-            {hero.title[0]}
-            <br />
-            <span className="text-honey">{hero.title[1]}</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/65">{hero.text}</p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Link
-              href="/#contact"
-              className="rounded-full bg-honey px-7 py-3.5 font-bold text-ink transition hover:bg-white"
-            >
-              預約免費諮詢
-            </Link>
-            <Link
-              href="/cases"
-              className="rounded-full border border-white/20 px-7 py-3.5 font-bold text-white transition hover:border-honey hover:text-honey"
-            >
-              看合作案例
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Industries strip */}
       <section className="border-b border-line bg-paper-2">

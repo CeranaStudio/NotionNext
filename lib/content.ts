@@ -24,12 +24,6 @@ export const nav = [
   { label: '常見問題', href: '/#faq' }
 ]
 
-export const hero = {
-  eyebrow: '客製化系統・AI 導入・數位轉型',
-  title: ['客製化方案，', '為企業開啟數位新篇章'],
-  text: '我們把你每天在 Excel、紙本和 LINE 群組裡處理的事，變成真的好用的系統。從一個痛點開始，做到看得見的成效。'
-}
-
 export type Service = { key: string; title: string; text: string; points: string[] }
 
 export const services: Service[] = [
