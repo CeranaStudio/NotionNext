@@ -1,0 +1,4 @@
+/archive        /cases  301
+/category/*     /cases  301
+/article/*      /cases  301
+/rss/*          /       302
