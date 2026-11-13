@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Carousel from '@/components/Carousel'
 import ContactForm from '@/components/ContactForm'
 import ServiceArt from '@/components/ServiceArt'
 import Testimonials from '@/components/Testimonials'
@@ -98,14 +99,19 @@ export default function Home() {
               title="不同產業，同一個目標：少做重工"
               text="以下案例皆已上線使用，為保護客戶隱私僅標示產業。"
             />
-            <Link href="/cases" className="shrink-0 text-sm font-bold text-ink underline-offset-4 hover:underline">
-              全部案例 →
+            <Link
+              href="/cases"
+              className="shrink-0 self-start rounded-full border border-ink/20 px-5 py-2.5 md:self-auto text-sm font-bold text-ink transition hover:border-ink hover:bg-ink hover:text-white"
+            >
+              看更多案例 →
             </Link>
           </div>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {cases.map((c, i) => (
-              <CaseCard key={c.slug} c={c} index={i} />
-            ))}
+          <div className="mt-12">
+            <Carousel label="合作案例" interval={5000}>
+              {cases.map((c, i) => (
+                <CaseCard key={c.slug} c={c} index={i} />
+              ))}
+            </Carousel>
           </div>
         </div>
       </section>
@@ -206,9 +212,9 @@ export default function Home() {
           <SectionHeading
             eyebrow="團隊"
             title="一支什麼都能接住的技術團隊"
-            text="成員來自政大、交大、台大，待過 LINE、Google、TSMC、研華與 SoC Labs，從現場硬體一路做到雲端 AI。"
+            text="成員來自政大、交大、台大，待過 LINE、Google、NVIDIA、台積電、研華與 SoC Labs，從現場硬體一路做到雲端 AI。"
           />
-          <ul className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+          <ul className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
             {team.map(m => (
               <li key={m.name} className="group">
                 <div className="aspect-square overflow-hidden rounded-2xl bg-line">
@@ -220,13 +226,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="mt-3 font-bold">{m.name}</div>
-                <div className="mt-1.5 flex flex-wrap gap-1.5 text-xs">
-                  {[m.school, ...m.past].map(tag => (
-                    <span key={tag} className="rounded-md bg-white px-2 py-1 text-ink-soft ring-1 ring-line">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                <div className="mt-1 text-sm leading-relaxed text-muted">{m.bio}</div>
               </li>
             ))}
           </ul>

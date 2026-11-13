@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { cases, nav, site } from '@/lib/content'
+import { nav, site } from '@/lib/content'
 
 export default function Footer() {
   const year = new Date().getFullYear()
   return (
     <footer className="bg-ink text-white/60">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1.2fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[2fr_1fr]">
         <div>
           <div className="flex items-center gap-2.5">
             <img src="/logo.png" alt="" width={36} height={36} className="rounded-md" />
@@ -28,19 +28,6 @@ export default function Footer() {
               <li key={item.href}>
                 <Link href={item.href} className="hover:text-honey">
                   {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <div className="text-xs font-bold tracking-widest text-white/40">合作案例</div>
-          <ul className="mt-4 space-y-2.5 text-sm">
-            {cases.map(c => (
-              <li key={c.slug}>
-                <Link href={`/cases/${c.slug}`} className="hover:text-honey">
-                  {c.industry}｜{c.product}
                 </Link>
               </li>
             ))}
