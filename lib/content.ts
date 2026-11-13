@@ -27,12 +27,7 @@ export const nav = [
 export const hero = {
   eyebrow: '客製化系統・AI 導入・數位轉型',
   title: ['客製化方案，', '為企業開啟數位新篇章'],
-  text: '我們把你每天在 Excel、紙本和 LINE 群組裡處理的事，變成真的好用的系統。從一個痛點開始，做到看得見的成效。',
-  stats: [
-    { value: '>300%', label: '學生提問處理效率', note: '大學 AI 助教' },
-    { value: '>100%', label: '板金生產效率', note: '板金加工廠' },
-    { value: '5+', label: '產業落地案例', note: '製造・教育・醫療' }
-  ]
+  text: '我們把你每天在 Excel、紙本和 LINE 群組裡處理的事，變成真的好用的系統。從一個痛點開始，做到看得見的成效。'
 }
 
 export type Service = { key: string; title: string; text: string; points: string[] }

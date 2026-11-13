@@ -1,14 +1,9 @@
 import Link from 'next/link'
 import ContactForm from '@/components/ContactForm'
+import ServiceArt from '@/components/ServiceArt'
+import Testimonials from '@/components/Testimonials'
 import { CaseCard, Eyebrow, SectionHeading } from '@/components/ui'
-import { cases, faqs, hero, plans, process, services, site, team, testimonials } from '@/lib/content'
-
-const serviceIcons: Record<string, React.ReactNode> = {
-  workflow: <path d="M4 5h7v6H4zM13 13h7v6h-7zM7.5 11v4.5H13M16.5 13V8.5H11" />,
-  factory: <path d="M3 20V9l5 3V9l5 3V9l5 3V4h3v16zM7 16h2M11 16h2M15 16h2" />,
-  ai: <path d="M12 3l2.2 5.3L19.5 10l-5.3 2.2L12 17.5l-2.2-5.3L4.5 10l5.3-1.7zM18 16l.9 2.1L21 19l-2.1.9L18 22l-.9-2.1L15 19l2.1-.9z" />,
-  edge: <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12L4 7.5" />
-}
+import { cases, faqs, hero, plans, process, services, site, team } from '@/lib/content'
 
 const industries = Array.from(new Set(cases.map(c => c.industry)))
 
@@ -21,7 +16,7 @@ export default function Home() {
           className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-honey/20 blur-[120px]"
           aria-hidden="true"
         />
-        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-20 sm:px-6 sm:pt-28">
+        <div className="relative mx-auto max-w-6xl px-4 pb-24 pt-20 sm:px-6 sm:pb-32 sm:pt-28">
           <Eyebrow dark>{hero.eyebrow}</Eyebrow>
           <h1 className="mt-6 max-w-4xl text-balance text-[1.95rem] font-black leading-[1.2] tracking-tight text-white sm:text-6xl">
             {hero.title[0]}
@@ -30,7 +25,10 @@ export default function Home() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/65">{hero.text}</p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link href="/#contact" className="rounded-full bg-honey px-7 py-3.5 font-bold text-ink transition hover:bg-white">
+            <Link
+              href="/#contact"
+              className="rounded-full bg-honey px-7 py-3.5 font-bold text-ink transition hover:bg-white"
+            >
               預約免費諮詢
             </Link>
             <Link
@@ -40,16 +38,6 @@ export default function Home() {
               看合作案例
             </Link>
           </div>
-
-          <dl className="mt-16 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-3">
-            {hero.stats.map(s => (
-              <div key={s.label} className="bg-ink/80 p-6 backdrop-blur">
-                <dt className="text-sm text-white/60">{s.label}</dt>
-                <dd className="mt-2 font-display text-4xl font-bold text-white">{s.value}</dd>
-                <dd className="mt-1 text-xs text-white/40">{s.note}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 
@@ -74,35 +62,28 @@ export default function Home() {
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
           {services.map((s, i) => (
-            <article key={s.key} className="rounded-2xl border border-line bg-white p-7 transition hover:border-ink/20">
-              <div className="flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-ink text-honey">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.7"
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                    aria-hidden="true"
-                  >
-                    {serviceIcons[s.key]}
-                  </svg>
-                </div>
-                <span className="font-display text-sm text-muted">0{i + 1}</span>
+            <article
+              key={s.key}
+              className="overflow-hidden rounded-2xl border border-line bg-white transition hover:border-ink/20"
+            >
+              <div className="border-b border-line p-3">
+                <ServiceArt name={s.key} />
               </div>
-              <h3 className="mt-6 text-xl font-bold">{s.title}</h3>
-              <p className="mt-2 leading-relaxed text-ink-soft">{s.text}</p>
-              <ul className="mt-5 space-y-2 border-t border-line pt-5 text-sm text-ink-soft">
-                {s.points.map(p => (
-                  <li key={p} className="flex gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-honey" aria-hidden="true" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
+              <div className="p-7 pt-6">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="text-xl font-bold">{s.title}</h3>
+                  <span className="font-display text-sm text-muted">0{i + 1}</span>
+                </div>
+                <p className="mt-2 leading-relaxed text-ink-soft">{s.text}</p>
+                <ul className="mt-5 space-y-2 border-t border-line pt-5 text-sm text-ink-soft">
+                  {s.points.map(p => (
+                    <li key={p} className="flex gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-honey" aria-hidden="true" />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </article>
           ))}
         </div>
@@ -198,7 +179,9 @@ export default function Home() {
                     <Link
                       href="/#contact"
                       className={`block rounded-full py-3 text-center font-bold transition ${
-                        hot ? 'bg-ink text-white hover:bg-ink-2' : 'bg-white/10 text-white hover:bg-honey hover:text-ink'
+                        hot
+                          ? 'bg-ink text-white hover:bg-ink-2'
+                          : 'bg-white/10 text-white hover:bg-honey hover:text-ink'
                       }`}
                     >
                       立即諮詢
@@ -214,28 +197,7 @@ export default function Home() {
       {/* Testimonials */}
       <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionHeading eyebrow="客戶回饋" title="我們的客戶怎麼說" />
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {testimonials.map(t => (
-            <figure key={t.name} className="flex flex-col rounded-2xl border border-line bg-white p-7">
-              <svg width="28" height="22" viewBox="0 0 28 22" className="text-honey" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M0 22V12.3C0 5.7 3.6 1.5 10.8 0l1.3 2.6C8.2 3.8 6.3 6.2 6 9.6h5.5V22zm16 0V12.3C16 5.7 19.6 1.5 26.8 0l1.2 2.6c-3.9 1.2-5.8 3.6-6 7h5.5V22z"
-                />
-              </svg>
-              <blockquote className="mt-5 flex-1 leading-relaxed text-ink-soft">{t.text}</blockquote>
-              <figcaption className="mt-6 flex items-center gap-3 border-t border-line pt-5">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink font-bold text-honey">
-                  {t.name[0]}
-                </span>
-                <span>
-                  <span className="block font-bold">{t.name}</span>
-                  <span className="block text-sm text-muted">{t.role}</span>
-                </span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        <Testimonials />
       </section>
 
       {/* Team */}
@@ -286,7 +248,11 @@ export default function Home() {
           </div>
         </div>
         <div id="contact">
-          <SectionHeading eyebrow="聯絡我們" title="告訴我們你卡在哪裡" text={`一個工作天內回覆。也可以直接寫信到 ${site.email}。`} />
+          <SectionHeading
+            eyebrow="聯絡我們"
+            title="告訴我們你卡在哪裡"
+            text={`一個工作天內回覆。也可以直接寫信到 ${site.email}。`}
+          />
           <div className="mt-10">
             <ContactForm />
           </div>
