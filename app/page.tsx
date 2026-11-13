@@ -206,9 +206,9 @@ export default function Home() {
           <SectionHeading
             eyebrow="團隊"
             title="一支什麼都能接住的技術團隊"
-            text="產品、軟體、SRE、物聯網、Web3——不同背景的工程師，讓我們能從現場硬體一路做到雲端 AI。"
+            text="成員來自政大、交大、台大，待過 LINE、Google、TSMC、研華與 SoC Labs，從現場硬體一路做到雲端 AI。"
           />
-          <ul className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
+          <ul className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
             {team.map(m => (
               <li key={m.name} className="group">
                 <div className="aspect-square overflow-hidden rounded-2xl bg-line">
@@ -220,7 +220,13 @@ export default function Home() {
                   />
                 </div>
                 <div className="mt-3 font-bold">{m.name}</div>
-                <div className="text-sm text-muted">{m.role}</div>
+                <div className="mt-1.5 flex flex-wrap gap-1.5 text-xs">
+                  {[m.school, ...m.past].map(tag => (
+                    <span key={tag} className="rounded-md bg-white px-2 py-1 text-ink-soft ring-1 ring-line">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </li>
             ))}
           </ul>

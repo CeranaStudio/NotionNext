@@ -244,12 +244,11 @@ export const testimonials = [
 ]
 
 export const team = [
-  { name: 'Brandon Lu', role: '產品經理', photo: '/team/brandon.webp' },
-  { name: 'Jack Zheng', role: '技術負責人', photo: '/team/yjack.webp' },
-  { name: 'Mark Lai', role: '網站可靠性工程師', photo: '/team/mark.webp' },
-  { name: 'Yen Chiu', role: 'Web3 工程師', photo: '/team/yen.webp' },
-  { name: 'Ian Chiu', role: '物聯網工程師', photo: '/team/ian.webp' },
-  { name: 'Peter Chang', role: '軟體工程師', photo: '/team/peter.webp' }
+  { name: 'Brandon Lu', school: '政大', past: ['ex LINE', 'ex Advantech'], photo: '/team/brandon.webp' },
+  { name: 'Jack Zheng', school: '交大', past: ['ex TSMC'], photo: '/team/yjack.webp' },
+  { name: 'Mark Lai', school: '台大', past: ['TSMC', 'ex Google'], photo: '/team/mark.webp' },
+  { name: 'Yen Chiu', school: '交大', past: [], photo: '/team/yen.webp' },
+  { name: 'Peter Chang', school: '交大', past: ['ex SoC Labs'], photo: '/team/peter.webp' }
 ]
 
 export const faqs = [
