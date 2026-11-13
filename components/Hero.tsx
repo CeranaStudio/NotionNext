@@ -6,22 +6,23 @@ import { useEffect, useState } from 'react'
 // 首頁 hero：淺色、編輯風。大字標題裡的「舊工具」輪流出現又被劃掉，換成「好用的系統」。
 const olds = ['Excel', '紙本表單', 'LINE 群組', '手抄紀錄', '老師傅的經驗']
 
+// 每個詞：淡入 → 劃線 → 詞和線一起淡出 → 換下一個（線不會縮回去）
+type Phase = 'in' | 'struck' | 'out'
+
 export default function Hero() {
   const [i, setI] = useState(0)
-  const [struck, setStruck] = useState(false)
+  const [phase, setPhase] = useState<Phase>('in')
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setStruck(true)
+      setPhase('struck')
       return
     }
-    setStruck(false)
-    const a = setTimeout(() => setStruck(true), 900)
-    const b = setTimeout(() => setI(v => (v + 1) % olds.length), 2600)
-    return () => {
-      clearTimeout(a)
-      clearTimeout(b)
-    }
+    setPhase('in')
+    const a = setTimeout(() => setPhase('struck'), 800)
+    const b = setTimeout(() => setPhase('out'), 2300)
+    const c = setTimeout(() => setI(v => (v + 1) % olds.length), 2750)
+    return () => [a, b, c].forEach(clearTimeout)
   }, [i])
 
   return (
@@ -29,13 +30,16 @@ export default function Hero() {
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-20 sm:px-6 sm:pt-28">
         <h1 className="text-[2.3rem] font-black leading-[1.15] tracking-tight text-ink sm:text-7xl">
           把
-          <span className="relative mx-2 inline-block text-muted">
-            <span key={i} className="inline-block animate-[fadeUp_.5s_ease-out]">
-              {olds[i]}
-            </span>
+          <span
+            key={i}
+            className={`relative mx-2 inline-block text-muted transition-all duration-[400ms] ease-in ${
+              phase === 'out' ? '-translate-y-[0.25em] opacity-0' : 'translate-y-0 opacity-100'
+            } ${phase === 'in' ? 'animate-[fadeUp_.5s_ease-out]' : ''}`}
+          >
+            {olds[i]}
             <span
-              className="absolute left-0 top-[55%] h-[0.12em] rounded-full bg-honey transition-all duration-500 ease-out"
-              style={{ width: struck ? '100%' : '0%' }}
+              className="absolute left-0 top-[55%] h-[0.12em] rounded-full bg-honey transition-[width] duration-500 ease-out"
+              style={{ width: phase === 'in' ? '0%' : '100%' }}
               aria-hidden="true"
             />
           </span>
