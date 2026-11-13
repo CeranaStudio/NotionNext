@@ -150,17 +150,17 @@ export default function Home() {
             dark
             center
             eyebrow="服務方案"
-            title="依專案規模彈性報價"
-            text="以下為起始價格，實際報價依需求訪談後提供，不另收諮詢費。"
+            title="兩種方案，起價清楚"
+            text="依專案有沒有硬體分成兩種。以下為起始價格，正式報價於需求訪談後提供，諮詢不收費。"
           />
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
+          <div className="mx-auto mt-14 grid max-w-4xl gap-5 md:grid-cols-2">
             {plans.map(p => {
               const hot = Boolean(p.tag)
               return (
                 <article
                   key={p.title}
                   className={`relative flex flex-col rounded-2xl p-8 ${
-                    hot ? 'bg-honey text-ink lg:-my-4 lg:py-12' : 'bg-ink-2 text-white ring-1 ring-white/10'
+                    hot ? 'bg-honey text-ink' : 'bg-ink-2 text-white ring-1 ring-white/10'
                   }`}
                 >
                   {p.tag && (

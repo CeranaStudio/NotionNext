@@ -204,23 +204,29 @@ export type Plan = {
 
 export const plans: Plan[] = [
   {
-    title: '基礎服務',
-    price: '3 萬',
-    header: '快速啟動您的數位化',
-    features: ['單頁式網站設計', '簡易 APP 建置', 'API 串接服務', '自動化流程設計（n8n / Make）', 'FAQ 聊天機器人']
+    title: '純軟體',
+    price: '4 萬',
+    header: '網站、系統、APP 與 AI 助理',
+    tag: '最常見',
+    features: [
+      '官網與一頁式網站',
+      '內部系統（排課、薪資、表單、報表）',
+      'APP 開發（iOS / Android / PWA）',
+      'AI 助理、LINE Bot 與知識庫',
+      '流程自動化與 API 串接'
+    ]
   },
   {
-    title: '進階開發',
-    price: '20 萬',
-    header: '完整的應用程式開發',
-    tag: '熱門',
-    features: ['APP 開發（iOS / Android）', '跨平台 APP 開發（PWA）', 'RAG 知識庫助理', 'AI Chatbot 開發', '企業內部系統']
-  },
-  {
-    title: '客製化方案',
-    price: '50 萬',
-    header: '量身打造的解決方案',
-    features: ['AI Agent 開發', '地端部署解決方案', '分散式系統架構', '企業級 RAG 系統', '客製化模型開發']
+    title: '軟體＋硬體',
+    price: '10 萬',
+    header: '需要現場設備、感測器或地端主機',
+    features: [
+      '現場設備與感測器整合',
+      '產線自動化與機台串接',
+      '影像辨識與邊緣運算',
+      '地端部署與主機建置',
+      '上線後監控與維運'
+    ]
   }
 ]
 
