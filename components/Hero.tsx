@@ -49,7 +49,9 @@ export default function Hero() {
 
         <div className="mt-12 grid gap-10 border-t border-line pt-10 md:grid-cols-[1.3fr_1fr]">
           <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
-            東蜂科技為中小企業、學校與醫療院所打造客製化系統與 AI 工具。先做 POC 試給你看，有效再往下走。
+            東蜂科技用<strong className="font-bold text-ink">數位化</strong>、
+            <strong className="font-bold text-ink">自動化</strong>與 <strong className="font-bold text-ink">AI</strong>
+            ，把中小企業、學校與醫療院所每天重複的工作交給系統。
           </p>
           <div className="flex flex-wrap items-start gap-3 md:justify-end">
             <Link href="/#contact" className="rounded-full bg-ink px-7 py-3.5 font-bold text-white transition hover:bg-honey hover:text-ink">
