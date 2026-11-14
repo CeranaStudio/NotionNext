@@ -40,9 +40,17 @@ export function CaseCard({ c, index }: { c: CaseStudy; index: number }) {
   return (
     <Link
       href={`/cases/${c.slug}`}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-ink/20 hover:shadow-[0_20px_40px_-20px_rgba(22,20,15,0.25)] sm:p-7"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white transition duration-300 hover:-translate-y-1 hover:border-ink/20 hover:shadow-[0_20px_40px_-20px_rgba(22,20,15,0.25)]"
     >
-      <span className="absolute inset-x-0 top-0 h-1" style={{ background: c.accent }} aria-hidden="true" />
+      <div className="aspect-video overflow-hidden bg-ink">
+        <img
+          src={`/cases/${c.slug}/slide-01.webp`}
+          alt=""
+          loading="lazy"
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
       <div className="flex items-center justify-between text-xs">
         <span className="rounded-full px-2.5 py-1 font-bold" style={{ background: `${c.accent}1a`, color: c.accent }}>
           {c.industry}
@@ -81,6 +89,7 @@ export function CaseCard({ c, index }: { c: CaseStudy; index: number }) {
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
         </div>
+      </div>
       </div>
     </Link>
   )

@@ -119,7 +119,7 @@ export const cases: CaseStudy[] = [
   },
   {
     slug: 'clinical-assessment',
-    client: '醫學中心',
+    client: '醫學中心復健團隊',
     industry: '醫療院所',
     product: '臨床早期活動評估助理',
     title: '醫療院所如何透過數位化，提升臨床判斷準確率和效率',
