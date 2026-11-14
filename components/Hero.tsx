@@ -10,18 +10,17 @@ const olds = ['Excel', '紙本表單', 'LINE 群組', '手抄紀錄', '老師傅
 type Phase = 'in' | 'struck' | 'out'
 
 export default function Hero() {
-  const [i, setI] = useState(0)
-  const [phase, setPhase] = useState<Phase>('in')
+  // 詞和階段放同一個 state，換詞時一次更新，線不會先以 100% 出現再縮回 0
+  const [{ i, phase }, set] = useState<{ i: number; phase: Phase }>({ i: 0, phase: 'in' })
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setPhase('struck')
+      set(s => ({ ...s, phase: 'struck' }))
       return
     }
-    setPhase('in')
-    const a = setTimeout(() => setPhase('struck'), 800)
-    const b = setTimeout(() => setPhase('out'), 2300)
-    const c = setTimeout(() => setI(v => (v + 1) % olds.length), 2750)
+    const a = setTimeout(() => set(s => ({ ...s, phase: 'struck' })), 800)
+    const b = setTimeout(() => set(s => ({ ...s, phase: 'out' })), 2300)
+    const c = setTimeout(() => set(s => ({ i: (s.i + 1) % olds.length, phase: 'in' })), 2750)
     return () => [a, b, c].forEach(clearTimeout)
   }, [i])
 
@@ -38,7 +37,9 @@ export default function Hero() {
           >
             {olds[i]}
             <span
-              className="absolute left-0 top-[55%] h-[0.12em] rounded-full bg-honey transition-[width] duration-500 ease-out"
+              className={`absolute left-0 top-[55%] h-[0.12em] rounded-full bg-honey ${
+                phase === 'struck' ? 'transition-[width] duration-500 ease-out' : ''
+              }`}
               style={{ width: phase === 'in' ? '0%' : '100%' }}
               aria-hidden="true"
             />
